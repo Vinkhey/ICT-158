@@ -204,6 +204,64 @@ Le raid 5 est partagée en plusieurs partitions nommée D: entre les disques 1 �
 
 ![alt text](/images/FileServer/GestionDisques.png)
 
+# Client
+
+## Hardware :
+
+- 35 machines clientes de type [Dell Latitude E6510](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/latitude-e6410-e6510-specsheet.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6510 est incompatible avec Windows 10.
+
+- 10 machines clientes de type [Dell Latitude E6530](https://www.notebooksforstudents.org/Descriptions/dell-e6530.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6530 est compatible avec Windows 10.
+
+- 5 machines clientes de type [Dell Optiplex 990](https://www.dell.com/downloads/global/products/optix/en/optiplex-990-tech-guide.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell Optiplex 990 n'est pas compatible avec Windows 10.
+
+## OS de la machine client :
+
+Windows 7 Entreprise 64 bits
+
+## Réseau :
+
+Nom de l'hôte : ICT158-CLI7-1
+
+Suffixe DNS Principal : Scuolapro.local
+
+Adresse physique :  00-0C-29-D6-17-2F
+
+Adresse IPv4 : 10.1.1.41
+
+Masque de sous-réseau : 255.255.255.0
+
+Passerelle par défaut : 10.1.1.1
+
+Serveur DHCP : 10.1.1.20
+
+Serveur DNS : 10.1.1.20
+
+
+
+## Logiciels :
+
+### Office :
+
+![](P:\4ème\ICT-158\Office.PNG)
+
+### Antivirus :
+
+Nom : Avira Antivirus
+
+Version du produit : 15.0.20.59 -> Date : 25.08.2016
+
+License : Non-valable
+
+### Bureau à distance :
+
+ ![](P:\4ème\ICT-158\Bureau à distance.PNG)
+
+
+
+### Adobe reader :
+
+![](P:\4ème\ICT-158\Adobe.PNG)
+
 # Users
 
 ## Users Existants
