@@ -73,7 +73,7 @@ Il y a un total de 7 imprimantes connecté sur le même réseau, une pour chaque
 ## Hardware
 Checker la documentation dans ce repository :
 
-https://github.com/Vinkhey/ICT-158/blob/main/doc_HPServer.pdf
+https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/doc_HPServer.pdf
 
 Dans ce document on peut retrouver le supposé hardware si la machine était réel, mais comme elle ne l'ai pas, son hadware est réellement :
 
@@ -208,11 +208,11 @@ Le raid 5 est partagée en plusieurs partitions nommée D: entre les disques 1 �
 
 ## Hardware :
 
-- 35 machines clientes de type [Dell Latitude E6510](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/latitude-e6410-e6510-specsheet.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6510 est incompatible avec Windows 10.
+- 35 machines clientes de type [Dell Latitude E6510](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/latitude-e6410-e6510-specsheet.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6510 est incompatible avec Windows 10.
 
-- 10 machines clientes de type [Dell Latitude E6530](https://www.notebooksforstudents.org/Descriptions/dell-e6530.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6530 est compatible avec Windows 10.
+- 10 machines clientes de type [Dell Latitude E6530](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/dell-e6530.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6530 est compatible avec Windows 10.
 
-- 5 machines clientes de type [Dell Optiplex 990](https://www.dell.com/downloads/global/products/optix/en/optiplex-990-tech-guide.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell Optiplex 990 n'est pas compatible avec Windows 10.
+- 5 machines clientes de type [Dell Optiplex 990](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/optiplex-990-tech-guide.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell Optiplex 990 n'est pas compatible avec Windows 10.
 
 ## OS de la machine client :
 
@@ -236,13 +236,11 @@ Serveur DHCP : 10.1.1.20
 
 Serveur DNS : 10.1.1.20
 
-
-
 ## Logiciels :
 
 ### Office :
 
-![](P:\4ème\ICT-158\Office.PNG)
+![alt-text](/images/MachineClient/Office.jpg)
 
 ### Antivirus :
 
@@ -254,13 +252,11 @@ License : Non-valable
 
 ### Bureau à distance :
 
- ![](P:\4ème\ICT-158\Bureau à distance.PNG)
-
-
+![alt-text](/images/MachineClient/BureauDistance.jpg)
 
 ### Adobe reader :
 
-![](P:\4ème\ICT-158\Adobe.PNG)
+![alt-text](/images/MachineClient/Adobe.jpg)
 
 # Users
 
