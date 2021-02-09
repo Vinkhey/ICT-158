@@ -1,12 +1,14 @@
 # Environnement
 ## Nom de domaine
+
 Comme dans la capture ci-dessous de nom de domaine est "Scuolapro.local"
 
 ![alt text](/images/Autres/DNS.png)
 
 Le FQDN ou Fully Qualified Domain Controller est "ict158-srv03-1.scuolapro.local"
 
-![alt text](/images/Autres/FQDN.png)
+![alt text](/images/Autres/FQDN.png
+
 ## IP
 
 L'adresse du server est 10.1.1.20 avec comme passerelle par défaut 10.1.1.1 et le serveur DNS pointe sur lui même.
@@ -51,10 +53,22 @@ Dans le dossier images il y a l'image windows 7 qu'utilise la machine cliente.
 
 ![alt text](/images/OSDeployement/Images.png)
 
+En revenant sur le dossier on peut y trouver un fichier texte à lire
+
+![alt text](/images/OSDeployement/ALire.png)
+
+Egalement un autre fichier texte qui semble contenir un code comme un script mais il est en fichier texte.
+
+![alt text](/images/OSDeployement/Dispartrans.png)
+
+Sinon il ne reste que deux script en .bat, "DeployImage" et "ExtractImage", leur nom semble très parlant bien qu'il soit impossible de les ouvrir pour l'instant sans lancer le script, il reste également un fichier iso, "winpe" probablement l'image pour windows professionale et un fichier executable "imagex.exe" difficile à dire de quoi il s'agit réellement.
+
 ## Imprimantes
-Il y a un total de 7 imprimantes connecté sur le même réseau :
+
+Il y a un total de 7 imprimantes connecté sur le même réseau, une pour chaque département.
 
 ![alt text](/images/Autres/Imprimantes.png)
+
 # Serveurs
 ## Hardware
 Checker la documentation dans ce repository :
@@ -72,31 +86,55 @@ Capture d'écran de l'os installé sur le serveur :
 ![alt text](/images/Autres/OSVersion.png)
 
 Nous pouvons donc constater que l'os installé est "Microsoft Windows Server 2003" la version standard.
+
 ## Services
 ### DHCP
+
+Comme indiqué plus haut dans le document, il y a une étendue sur l'adresse 10.1.1.0, le serveur DHCP est le serveur lui-même en 10.1.1.20
+
 ![alt text](/images/DHCP/DHCP.png)
+
+La Pool d'adresse distribuable est entre les adresses 10.1.1.40 et 10.1.1.199
 
 ![alt text](/images/DHCP/PoolAdresse.png)
 
+On peut constater qu'une adresse IP à déjà été attribuée à la machine cliente avec pour adresse 10.1.1.40 est la fin du bail d'une durée de 8 jours.
+
 ![alt text](/images/DHCP/BauxAdresse.png)
+
+Aucune réservation d'adresse IP n'a été effectuée.
 
 ![alt text](/images/DHCP/ReservationAdresse.png)
 
+Ici on peut constater les options d'étendues, le routeur avec l'adresse 10.1.1.1 et le serveur DNS en 10.1.1.20 avec comme nom de domaine ScuolaPro.local
+
 ![alt text](/images/DHCP/OptionEtendue.png)
 
+Aucune option de serveur n'a été effectuée
+
 ![alt text](/images/DHCP/OptionServeur.png)
+
 ### AD
-![alt text](/images/AD/AD.png)
+
+Ici on peut retrouvé les groupes utilisateurs créer par défaut par l'os.
 
 ![alt text](/images/AD/Builtin.png)
 
+Ici on retrouve les machines du réseau.
+
 ![alt text](/images/AD/Computers.png)
 
+Ici on retrouve le controlleur de domaine qui est le serveur lui-même.
+
 ![alt text](/images/AD/DomainController.png)
+
+Aucun principe de sécurité étrangère
 
 ![alt text](/images/AD/ForeignSecurityPrincipals.png)
 
 ### Unité d'organisation
+
+Dans l'unité d'organisation "ScuolaPro-Ste-Croix", on peut retrouver un groupe pour chaque département contenant les utilisateurs concernés :
 
 ![alt text](/images/AD/GroupeAD/Back-Office.png)
 
@@ -112,28 +150,56 @@ Nous pouvons donc constater que l'os installé est "Microsoft Windows Server 200
 
 ![alt text](/images/AD/GroupeAD/Production.png)
 
+Ici on peut retrouver les différents autres groupes.
+
 ![alt text](/images/AD/Users.png)
+
 ### DNS
+
+Les options du serveurs DNS :
+
 ![alt text](/images/DNS/DNS.png)
+
+Dans la zone de recherche directe, le domaine ScuolaPro.local
 
 ![alt text](/images/DNS/ZoneDirecte.png)
 
+Aucune zone de recherche inversée
+
 ![alt text](/images/DNS/ZoneInverse.png)
 
+Ici on peut notamment retrouver le FQDN du domaine
+
 ![alt text](/images/DNS/Msdcs.png)
+
+Ici on peut retrouver tout les hotes du domaine.
 
 ![alt text](/images/DNS/ScuolaPro.png)
 
 ### File Server
+
+Toute les options du FileServer, partage local :
+
 ![alt text](/images/FileServer/PartageLocal.png)
+
+Sessions local :
 
 ![alt text](/images/FileServer/SessionLocal.png)
 
+Fichiers ouverts :
+
 ![alt text](/images/FileServer/FichierOuvertLocal.png)
+
+Pour défragmenter les disques :
 
 ![alt text](/images/FileServer/DefragmenterDisque.png)
 
+Les options de partitions de disques :
+
 ![alt text](/images/FileServer/GestionDisques.png)
+
 ## Raid5
+
+Le raid 5 est partagée en plusieurs partitions nommée D: entre les disques 1 à 3.
 
 ![alt text](/images/FileServer/GestionDisques.png)
