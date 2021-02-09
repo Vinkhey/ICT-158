@@ -69,6 +69,8 @@ Il y a un total de 7 imprimantes connecté sur le même réseau, une pour chaque
 
 ![alt text](/images/Autres/Imprimantes.png)
 
+Les printers sont tous des HP LaserJet 4250 PCL 5e, pour l'instant seulement une seule imprimante est utilisée, la HP_IT
+
 # Serveurs
 ## Hardware
 Checker la documentation dans ce repository :
