@@ -136,19 +136,19 @@ Aucun principe de sécurité étrangère
 
 Dans l'unité d'organisation "ScuolaPro-Ste-Croix", on peut retrouver un groupe pour chaque département contenant les utilisateurs concernés :
 
-![alt text](/images/AD/GroupeAD/Back-Office.png)
+![alt text](/images/AD/DepartementAD/Back-Office.png)
 
-![alt text](/images/AD/GroupeAD/Comptabilite.png)
+![alt text](/images/AD/DepartementAD/Comptabilite.png)
 
-![alt text](/images/AD/GroupeAD/Direction.png)
+![alt text](/images/AD/DepartementAD/Direction.png)
 
-![alt text](/images/AD/GroupeAD/IT.png)
+![alt text](/images/AD/DepartementAD/IT.png)
 
-![alt text](/images/AD/GroupeAD/Logistique.png)
+![alt text](/images/AD/DepartementAD/Logistique.png)
 
-![alt text](/images/AD/GroupeAD/Marketing.png)
+![alt text](/images/AD/DepartementAD/Marketing.png)
 
-![alt text](/images/AD/GroupeAD/Production.png)
+![alt text](/images/AD/DepartementAD/Production.png)
 
 Ici on peut retrouver les différents autres groupes.
 
@@ -203,3 +203,93 @@ Les options de partitions de disques :
 Le raid 5 est partagée en plusieurs partitions nommée D: entre les disques 1 à 3.
 
 ![alt text](/images/FileServer/GestionDisques.png)
+
+# Users
+
+## Users Existants
+
+La liste de tout les utilisateurs du domaine :
+
+![alt text](/images/AD/UsersExistants.png)
+
+## Appartenances aux groupes
+
+Certains utilisateurs ne font pas partis de leur groupe mais d'autre oui :
+
+Mélanie Alonso dans Back-Office :
+
+![alt text](/images/AD/DepartementAD/Back-Office.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Back-Office.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Melanie.png)
+
+Dana Shipper dans Comptabilite :
+
+![alt text](/images/AD/DepartementAD/Comptabilite.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Comptabilite.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Dana.png)
+
+Marc Mueller dans Direction :
+
+![alt text](/images/AD/DepartementAD/Direction.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Direction.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Marc.png)
+
+Tim Brown dans IT :
+
+![alt text](/images/AD/DepartementAD/IT.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/IT.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Tim.png)
+
+Jean-Michel dans Logistique :
+
+![alt text](/images/AD/DepartementAD/Logistique.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Logistique.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Jean-Michel.png)
+
+Andre Dupre dans Marketing :
+
+![alt text](/images/AD/DepartementAD/Marketing.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Marketing.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Andre.png)
+
+Juerg Haefeli dans Production :
+
+![alt text](/images/AD/DepartementAD/Production.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Production.png)
+
+![alt text](/images/AD/DepartementAD/GroupeAD/Juerg.png)
+
+## Script Logon
+
+Il y a un script différent pour chaque utlisateur selon sont affiliation aux départements :
+
+![alt text](/images/Autres/ScriptLogon.png)
+
+Le chemin où sont stocker tout les scripts :
+
+![alt text](/images/Autres/ScriptLogonChemin.png)
+
+## Profils itinérants
+
+Dans cette capture ont peut voir le chemin du profil de l'utilisateur, ils ont tous le même chemin mais en changeant juste le selon leur prénom et nom
+
+![alt text](/images/Autres/ScriptLogon.png)
+
+## Dossier personnel
+
+Chaque dossier perso des utilisateurs est monté sur un lecteur U:, changeant également nom en fonction de leur prénom et nom
+
+![alt text](/images/Autres/DossierBase.png)
