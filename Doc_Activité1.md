@@ -39,9 +39,13 @@ La pool d'adresse IP sont entre 10.1.1.40 et 10.1.1.199
 
 ![alt text](images/DHCP/PoolAdresse.png)
 
-Ici on peut voir que l'adresse du routeur est 10.1.1.1, l'adresse du DNS est 10.1.1.20 lui même et le nom de domaine est ScuolaPro.local.
+Ici on peut voir que l'adresse du routeur est 10.1.1.1, l'adresse du DNS est 10.1.1.20 lui même et le nom de domaine est "ScuolaPro.local".
 
 ![alt text](images/DHCP/OptionEtendue.png)
+
+Voici un état des lieux du réseau actuelle.
+
+![alt text](images/Autres/Shema.png)
 
 ## Déploiement auto *wim
 
@@ -57,11 +61,17 @@ En revenant sur le dossier on peut y trouver un fichier texte à lire
 
 ![alt text](images/OSDeployement/ALire.png)
 
-Egalement un autre fichier texte qui semble contenir un code comme un script mais il est en fichier texte.
+Egalement un autre fichier texte qui semble contenir un code comme un script mais il est en fichier texte, il semble qu'il sert à créer deux partitions différentes.
 
 ![alt text](images/OSDeployement/Dispartrans.png)
 
-Sinon il ne reste que deux script en .bat, "DeployImage" et "ExtractImage", leur nom semble très parlant bien qu'il soit impossible de les ouvrir pour l'instant sans lancer le script, il reste également un fichier iso, "winpe" probablement l'image pour windows professionale et un fichier executable "imagex.exe" difficile à dire de quoi il s'agit réellement.
+Sinon il ne reste que deux script en .bat, "DeployImage", qui j'imagine sert à déployer l'image windows du client.
+
+![alt text](images/OSDeployement/DeployImage.png)
+
+et "ExtractImage" qui sert à enlever l'image de la machine
+
+![alt text](images/OSDeployement/ExtractImage.png)
 
 ## Imprimantes
 
@@ -69,7 +79,17 @@ Il y a un total de 7 imprimantes connecté sur le même réseau, une pour chaque
 
 ![alt text](images/Autres/Imprimantes.png)
 
-Les printers sont tous des HP LaserJet 4250 PCL 5e, pour l'instant seulement une seule imprimante est utilisée, la HP_IT
+Les printers sont tous des HP LaserJet 4250 PCL 5e, pour l'instant seulement une seule imprimante est utilisée, la HP_IT.
+
+Dans cette capture nous pouvons voir les quelles adresses IP correspond à quelle imprimante.
+
+![alt text](images/Autres/IPImprimante.png)
+
+![alt text](images/Autres/IPImprimante2.png)
+
+Toutes les imprimantes possèdent le même pilote, le "HP Laserjet 4350 PCL 5e".
+
+![alt text](images/Autres/PiloteImprimante.png)
 
 # Serveurs
 ## Hardware
@@ -77,11 +97,6 @@ Checker la documentation dans ce repository :
 
 https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/doc_HPServer.pdf
 
-Dans ce document on peut retrouver le supposé hardware si la machine était réel, mais comme elle ne l'ai pas, son hadware est réellement :
-
-![alt text](images/Autres/Hardware.png)
-
-Elle prend ces ressources de la machine utilisé hôte.
 ## OS
 Capture d'écran de l'os installé sur le serveur :
 
@@ -92,7 +107,7 @@ Nous pouvons donc constater que l'os installé est "Microsoft Windows Server 200
 ## Services
 ### DHCP
 
-Comme indiqué plus haut dans le document, il y a une étendue sur l'adresse 10.1.1.0, le serveur DHCP est le serveur lui-même en 10.1.1.20
+Comme indiqué plus haut dans le document, il y a une étendue "SculoaPro_DHCP" sur l'adresse 10.1.1.0, le serveur DHCP est le serveur lui-même en 10.1.1.20
 
 ![alt text](images/DHCP/DHCP.png)
 
@@ -118,7 +133,9 @@ Aucune option de serveur n'a été effectuée
 
 ### AD
 
-Ici on peut retrouvé les groupes utilisateurs créer par défaut par l'os.
+Comme mentionné au début de ce document le nom de domaine est "ScuolaPro.local" et le FQDN est "ict158-srv03-1.scuolapro.local", le controleur de domaine est "ScuolaPro.local", il n'y a pas de sous-domaine.
+
+Ici on peut retrouver les groupes utilisateurs créer par défaut par l'os.
 
 ![alt text](images/AD/Builtin.png)
 
@@ -170,7 +187,7 @@ Aucune zone de recherche inversée
 
 ![alt text](images/DNS/ZoneInverse.png)
 
-Ici on peut notamment retrouver le FQDN du domaine
+Ici on peut notamment retrouver le FQDN du domaine, il y a également un alias CNAME "5e514734-7b39-4d21-aff5-270ee42d3261._msdcs.Scuolapro.local"
 
 ![alt text](images/DNS/Msdcs.png)
 
@@ -202,7 +219,7 @@ Les options de partitions de disques :
 
 ## Raid5
 
-Le raid 5 est partagée en plusieurs partitions nommée D: entre les disques 1 à 3.
+Le raid 5 est partagée en plusieurs partitions nommée Data avec comme lettre d: entre les disques 1 à 3 avec une capacité totale de 80 Go ainsi que de type NTFS et le disque c: de 40Go également de type NTFS.
 
 ![alt text](images/FileServer/GestionDisques.png)
 
