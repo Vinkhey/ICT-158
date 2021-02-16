@@ -51,7 +51,7 @@ Sur le bureau du windows server 2003 il y a un raccourci qui mène au déployeme
 
 Dans le dossier images il y a l'image windows 7 qu'utilise la machine cliente.
 
-![alt text](images/OSDeployementimages.png)
+![alt text](images/OSDeployement/images.png)
 
 En revenant sur le dossier on peut y trouver un fichier texte à lire
 
