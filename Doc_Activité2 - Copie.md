@@ -41,11 +41,20 @@ Une carte réseau qui prend en charge l’environnement PXE (Pre-boot Execution 
 
 ## Choix du matériel
 
+HPE ProLiant MicroServer Gen10 Plus
 
+Processeur : [Intel Xeon E-2224](https://buy.hpe.com/ch/fr/servers/proliant-microserver/proliant-microserver/proliant-microserver/hpe-proliant-microserver-gen10-plus/p/1012241014)
+Vitesse : 3.40GHz
+RAM : 16Go
+Type : DDR4
+Vitesse de RAM : 2666 MHz
+Capacité de stokage : 4 x 1Tb 
+
+Prix : 820.-
 
 ## Justification financière
 
-
+Ce serveur est puissant, compact et a un faible coût. Il est parfait pour les petites entreprises. Nous avons choisi celui-ci, car il remplit les critères pour l'entreprise. 
 
 # Migration des données
 ## Méthode 1
@@ -60,11 +69,11 @@ Cette outil peut migrer le file server d'un serveur à un autre, donc toutes les
 
 ## Méthode 2
 
-La deuxième méthode consisterai à transférer les données manuellement par clé usb et recréer les partages sur le nouveau serveur. par contre nous perdrons les droits et devrons les recrées également.
+La deuxième méthode consisterai à transférer les données manuellement par clé usb et recréer les partages sur le nouveau serveur. Par contre nous perdrons les droits et devrons les recrées également.
 
 ## Méthode 3
 
-Nous pourrions utiliser la commande powershell robocopy qui permet de copier les files entre les deux serveurs ainsi que les droits ntfs, par contre il faudra recréer les partages manuellement mais au moins les droits seront conservés. Il faut également transférer les options de partage car sinon les partages ne seront pas vu par le serveur.
+Nous pourrions utiliser la commande powershell robocopy qui permet de copier les files entre les deux serveurs ainsi que les droits ntfs. Par contre il faudra recréer les partages manuellement mais au moins les droits seront conservés. Il faut également transférer les options de partage car sinon les partages ne seront pas vu par le serveur.
 
 ## Justification de la méthode choisie
 
