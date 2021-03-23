@@ -83,6 +83,9 @@ La méthode 3 semble être non seulement la plus rapide mais également la plus 
 
 # Migration des Services
 ## Méthode 1
+
+La première méthode consisterai à migrer l'AD sur Windows Server 2008 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2008 à 2019.  
+
 ## Méthode 2
 ## Justification de la méthode choisie
 ## description
