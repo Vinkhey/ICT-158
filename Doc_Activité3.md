@@ -58,7 +58,7 @@
 
 
 ## Solution 2
-
+  Pour chaque laptop, lors de l'upgrade de windows 7 à windows 10, microsoft garantit que les ordinateurs conservent les fichiers et les logiciels pour autant qu'ils soient compatible avec windows 10, prenant en compte ceci, nous devrions donc upgrader chaque laptops vers windows 10 ce qui peut prendre du temps, on pourrait tester avec quelque laptops au départ pour regarder que tout soit bien compatible et fonctionnel et ensuite faire avec le reste petit à petit.
 
 # Migration vers windows 10
 ## Mise a jour vers windows 10
