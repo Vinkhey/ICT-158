@@ -90,9 +90,9 @@ La méthode 3 semble être non seulement la plus rapide mais également la plus 
 
 ## Méthode 1
 
-La première méthode consisterai à migrer l'AD sur Windows Server 2008 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2008 à 2019.  Car sous Windows 2000 server et 2003, la réplication de SYSVOL ce faisait à l'aide FRS (NTFRS) alors que depuis Windows Server 2008 il se fait avec DFSR. D'où le besoin de faire une première migrations de 2003 à 2008 et ensuite de faire celle de 2008 à 2019. <br/>
+La première méthode consisterai à migrer l'AD sur Windows Server 2012 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2012 à 2019.  Car sous Windows 2000 server et 2003, la réplication de SYSVOL ce faisait à l'aide FRS (NTFRS) alors que depuis Windows Server 2012 il se fait avec DFSR. D'où le besoin de faire une première migrations de 2003 à 2012 et ensuite de faire celle de 2012 à 2019. <br/>
 
-Tout d'abord, il faut voir l'état de son active directory à l'aide de la commande suivante:
+Tout d'abord, il faut voir l'état de son active directory à l'aide de la commande suivante: 
 
 ```cmd
 dcdiag /e /test:sysvolcheck /test:advertising #permet faire un check de sysvol et du domaine controller
@@ -107,14 +107,37 @@ dfsrmig /getmigrationstate #Permet de voir l'avancement de la commande que l'on 
 ```
 
 ```cmd
-dfsrmig /setglobalstate 2 #
+dfsrmig /setglobalstate 2 #La copie SYSVOL_DFSR sera montée sur le partage SYSVOL à la place de l'ancienne. Il faut patienter un certain temps. 
 ```
+
+```cmd
+dfsrmig /getmigrationstate #Comme pour la précendente opération, il faut faire cette commande pour voir l'avancement. 
+```
+
+```cmd
+dfsrmig /setglobalstate 3 #Cette commande va retirer complètement FRS et son SYSVOL pour passer entièrement à DFSR. Il faudra patienter encore un certain temps le temps que FRS soit retiré sur le DC (ou les DC) et que DFSR soit fonctionnel. Il faut refaire la commande "dfsrmig /getmigrationstate" pour voir l'avancement de temps en temps. 
+```
+
+S'il y a des soucis avec l'antivirus. Il faut penser à changer le chemin d'exclusion SYSVOL en SYSVOL_DFSR. <br/>
+
+Après cette étape on pourrait faire la migration entre Windows Server 2012 et Windows Server 2019.  
+
+Pour le DHCP, il faut exécuter la commande suivante sur PowerShell: <br/>
+
+```powershell
+Export-DhcpServer -ComputerName "FQDN Serveur DHCP" -File 
+"C:\Temp\dhcp172163.xml" -ScopeId 10.1.1.0 #cette commande va créer un fichier .xml qui pourra être utiliser sur le nouveau serveur. Le répertoire Temp dans être créer avant de faire la commande. 
+```
+
+ 
 
 ## Méthode 2
 
+La méthode 2 consisterait à partir de zéro et recommencer tout le travail. C'est-à-dire, recréer l'AD, le DNS et le DHCP, les groupes, les utilisateurs, etc... Ce qui pourrait poser pas mal de problèmes pour les utilisateurs. Car leur PCs ne recevrait pas d'adresse IP et il ne ferai pas parti du domaine. 
+
 ## Justification de la méthode choisie
 
-Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréeant manuellement les services.
+Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréant manuellement les services.
 
 # Pratique
 
