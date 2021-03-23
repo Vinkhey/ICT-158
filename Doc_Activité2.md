@@ -1,53 +1,56 @@
-# Pratique
-# Changement du Hardware
 
-Selon microsoft le système minimale pour installer windows server 2019 est :
-
-## Processor
-
-### Minimum:
-
-    1.4 GHz 64-bit processor
-    Compatible with x64 instruction set
-    Supports NX and DEP
-    Supports CMPXCHG16b, LAHF/SAHF, and PrefetchW
-    Supports Second Level Address Translation (EPT or NPT)
-
-## RAM
-
-### Minimum:
-
-    512 MB (2 GB for Server with Desktop Experience installation option)
-    ECC (Error Correcting Code) type or similar technology, for physical host deployments
-
-## Storage controller and disk space requirements
-
-Computers that run Windows Server 2019 must include a storage adapter that is compliant with the PCI Express architecture specification. Persistent storage devices on servers classified as hard disk drives must not be PATA. Windows Server 2019 does not allow ATA/PATA/IDE/EIDE for boot, page, or data drives.
-Minimum: 32 GB
-
-## Network adapter requirements
-
-### Minimum:
-
-    An Ethernet adapter capable of at least gigabit throughput
-    Compliant with the PCI Express architecture specification.
-
-A network adapter that supports network debugging (KDNet) is useful, but not a minimum requirement.
-
-A network adapter that supports the Pre-boot Execution Environment (PXE) is useful, but not a minimum requirement.
-
+# Changement du hardware
 ## Choix du matériel
 
+Selon microsoft le système minimale pour installer Windows server 2019 est :
+## Processeur
+### Minimum:
 
+Processeur 1,4 GHz 64 bits
+Compatible avec le jeu d’instructions x64
+Prend en charge NX et DEP
+Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW
+Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)
 
-## Justification financière
+## RAM
+### Minimum:
+
+512 Mo (2 Go pour l’option d’installation Serveur avec Expérience utilisateur)
+Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements d’hôtes physiques
+
+### Contrôleur de stockage et espace disque requis
+
+Les ordinateurs qui exécutent Windows Server 2019 doivent inclure un adaptateur du stockage conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.
+
+### L’espace disque requis minimal approximatif pour la partition système est le suivant :
+
+Minimum : 32 Go
+Conditions requises pour les cartes réseau
+Minimum:
+
+Carte réseau Ethernet capable d’au moins un débit en gigabits
+Conforme à la spécification de l’architecture PCI Express.
+
+Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.
+
+Une carte réseau qui prend en charge l’environnement PXE (Pre-boot Execution Environment) est utile, mais ne constitue pas une condition minimale requise.
+
+## Choix du matériel et justification
+
+HPE ProLiant MicroServer Gen10 Plus
+
+Processeur : Intel Xeon E-2224 Vitesse : 3.40GHz RAM : 16Go Type : DDR4 Vitesse de RAM : 2666 MHz Capacité de stokage : 4 x 1Tb
+
+Prix : 820.-
+
+Ce serveur est puissant, compact et a un faible coût. Il est parfait pour les petites entreprises. Nous avons choisi celui-ci, car il remplit les critères pour l'entreprise.
 
 
 
 # Migration des données
 ## Méthode 1
 
-La première méthode consisterai à migrer le server de 2003 à 2008 puis 2012, 2016 et enfin 2019 en utilisant l'outil de micorsoft "Storage Migration Service"
+La première méthode consisterai à migrer le server de 2003 à 2008 puis 2012, 2016 et enfin 2019 en utilisant l'outil de microsoft "Storage Migration Service".
 
 ![alt text](images/Autres/upgrade-paths.png)
 
@@ -68,7 +71,25 @@ Nous pourrions utiliser la commande powershell robocopy qui permet de copier les
 La méthode 3 semble être non seulement la plus rapide mais également la plus facile des méthodes car elle ne prend pas en compte l'upgrade des serveurs fastidieuse et permet de limiter la perte de temps de la méthode 2.
 
 # Migration des Services
+
 ## Méthode 1
+
+La première méthode, permet de migrer le DHCP en faisant en premier temps un backup de la config DHCP du server 2003 et à le lancer sur le serveur 2019, cette métohde permet de récupérer toute les config du DHCP, il ne restera plus qu'à désactiver et désinstaller l'ancien pour éviter tout conflit.
+
+Pour le DNS et l'AD, cette méthode ne fonctionne pas, il faut d'abord installer l'AD sur un serveur 2016 puis 2019, en ajoutant à un domaine déjà existant et en activant la réplication.
+
 ## Méthode 2
+
+La deuxième méthode consiste à recréer le DHCP, DNS et AD manuellement, recopiant un à un les configuration du server 2003.
+
 ## Justification de la méthode choisie
-## description
+
+Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréeant manuellement les services.
+
+# Pratique
+
+En premier lieu il faut faire rejoindre le même network au deux serveurs 2003 et 2019, puis rajouter le serveur 2019 au domaine.
+
+## Migration des données
+
+Il faut commencer par ajouter le protocole smb1 car sinon on ne peut accéder aux partages depuis le serveur, vérifier que les files sont accessibles depuis le serveur 2019 et ensuite on peut commencer à exporter vers ce serveur.
