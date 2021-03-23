@@ -19,19 +19,9 @@ L'adresse du client est 10.1.1.41, on peut constater également que l'adresse IP
 
 ![alt text](images/Autres/IPClient.png)
 
-Chose bizarre lorqu'on regarde les adresses réservé, la machine cliente windows 7 semble avoir deux adresses IP qui lui ont été attribué et active au même moment, mais si on tente de pinger la machine 10.1.1.40 sur le serveur et le client elle ne répond pas mais la 10.1.1.41 fonctionne.
-
-![alt text](images/Autres/AdresseDonne.png)
-
-Le serveur ne semble pas pouvoir pinger la machine 10.1.1.41, mais le client lui arrive à le pinger, il semble y avoir un problème avec le pare-feu.
-
 ## Réseau
 
-Dans la capture ci-dessous nous pouvons voir que l'adresse du réseau est 10.1.1.0
-
-![alt text](images/DHCP/DHCP.png)
-
-le masque de sous réseau est 255.255.255.0 ou /24
+L'adresse du réseau est 10.1.1.0, le masque de sous réseau est 255.255.255.0 ou /24
 
 ![alt text](images/Autres/IPServer.png)
 
@@ -46,6 +36,9 @@ Ici on peut voir que l'adresse du routeur est 10.1.1.1, l'adresse du DNS est 10.
 Voici un état des lieux du réseau actuelle.
 
 ![alt text](images/Autres/Shema.png)
+
+Il y a actuellement 6 imprimantes connectés au serveur puis à un routeur ainsi qu'une machine cliente également connectée au serveur.
+
 
 ## Déploiement auto *wim
 
@@ -81,28 +74,30 @@ Il y a un total de 7 imprimantes connecté sur le même réseau, une pour chaque
 
 Les printers sont tous des HP LaserJet 4250 PCL 5e, pour l'instant seulement une seule imprimante est utilisée, la HP_IT.
 
-Dans cette capture nous pouvons voir les quelles adresses IP correspond à quelle imprimante.
+Dans cette capture nous pouvons voir les quelles adresses IP correspond à quelle imprimante ainsi que le port utilisé TCP/IP.
 
 ![alt text](images/Autres/IPImprimante.png)
 
 ![alt text](images/Autres/IPImprimante2.png)
 
-Toutes les imprimantes possèdent le même pilote, le "HP Laserjet 4350 PCL 5e".
+Toutes les imprimantes utilisent le même pilote, le "HP Laserjet 4350 PCL 5e".
 
 ![alt text](images/Autres/PiloteImprimante.png)
 
+Il y a trois pilote d'impression différent d'installé sur le serveur d'impression, celui qu'utilisent les imprimantes ont la version 64 bits et 32 bits.
+
+![alt text](images/Autres/PiloteServeurImpression.png)
+
 # Serveurs
 ## Hardware
-Checker la documentation dans ce repository :
+
+Checker la documentation dans ce repository, ce document repertorie tout le type d'hardware disponible pour ce type de serveur, difficile de dire les vrais composants du serveur puisqu'il d'agit d'une machine virtuel, les composants ne sont pas les mêmes :
 
 https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/doc_HPServer.pdf
 
-## OS
-Capture d'écran de l'os installé sur le serveur :
+D'après la capture ci-dessous l'os installé est "Microsoft windows server 2003 Standard Edition", la version du système est "5.2.3790 Service Pack 2 version 3790"
 
-![alt text](images/Autres/OSVersion.png)
-
-Nous pouvons donc constater que l'os installé est "Microsoft Windows Server 2003" la version standard.
+![alt text](images/Autres/Hardware-2.png)
 
 ## Services
 ### DHCP
@@ -135,6 +130,10 @@ Aucune option de serveur n'a été effectuée
 
 Comme mentionné au début de ce document le nom de domaine est "ScuolaPro.local" et le FQDN est "ict158-srv03-1.scuolapro.local", le controleur de domaine est "ScuolaPro.local", il n'y a pas de sous-domaine.
 
+Le niveau fonctionnel est windows 2000 mixte et le niveau de la foret est windows 2000.
+
+![alt text](images/Autres/foret.png)
+
 Ici on peut retrouver les groupes utilisateurs créer par défaut par l'os.
 
 ![alt text](images/AD/Builtin.png)
@@ -153,19 +152,32 @@ Aucun principe de sécurité étrangère
 
 ### Unité d'organisation
 
-Dans l'unité d'organisation "ScuolaPro-Ste-Croix", on peut retrouver un groupe pour chaque département contenant les utilisateurs concernés :
+Dans l'unité d'organisation "ScuolaPro-Ste-Croix", on peut retrouver un groupe pour chaque département contenant les utilisateurs concernés.
+
+Dans Back-office, le groupe Back-Office et L'utilisatrice Mélanie-Alonso, le groupe Back-Office ne possède actuellement aucun membre et Mélanie ne fait partit d'aucun autre groupe
 
 ![alt text](images/AD/DepartementAD/Back-Office.png)
 
+Dans Comptabilité, le groupe Comptabilite et L'utilisatrice Dana Schipper, le groupe Comptabilite ne possède actuellement aucun membre et Dana ne fait partit d'aucun autre groupe
+
 ![alt text](images/AD/DepartementAD/Comptabilite.png)
+
+Dans Direction, le groupe Direction et L'utilisateur Marc Mueller, le groupe Direction ne possède actuellement aucun membre et Marc ne fait partit d'aucun autre groupe
 
 ![alt text](images/AD/DepartementAD/Direction.png)
 
+Dans IT, le groupe IT et L'utilisateur Tim Brown, il fait bien partit du groupe IT et aucun d'autre.
 ![alt text](images/AD/DepartementAD/IT.png)
+
+Dans Logistique, le groupe Logistique et L'utilisateur Jean-Michel Blaser, il fait bien partit du groupe Logistique et aucun autre.
 
 ![alt text](images/AD/DepartementAD/Logistique.png)
 
+Dans marketing, le groupe Marketing et L'utilisateur André Dupré, le groupe Marketing ne possède actuellement aucun membre et André ne fait partit d'aucun autre groupe
+
 ![alt text](images/AD/DepartementAD/Marketing.png)
+
+Dans Production, le groupe Production et L'utilisateur Juerg Haefeli, le groupe Comptabilite ne possède actuellement aucun membre et Dana ne fait partit d'aucun autre groupes.
 
 ![alt text](images/AD/DepartementAD/Production.png)
 
@@ -197,15 +209,35 @@ Ici on peut retrouver tout les hotes du domaine.
 
 ### File Server
 
-Toute les options du FileServer, partage local :
+Les partages local, il y un total de 12 partages différents, un partage caché pour le disque C avec droits de lecture et exécution pour tout les utilisateurs, tout les partages ont tout les droits pour le groupe administrateurs.
+
+Un partage caché pour le disque D: sans droits particuliers.  
+
+Un partage sur le dossier Downloads, les créateurs de fichiers et dossiers n'ont aucun droits.
+
+Un partage sur le dossier Echange, les créateurs de fichiers et dossiers n'ont aucun droits.
+
+Un partage caché IPC aucune idée de quoi il s'agit.
+
+Un partage NETLOGON, avec comme droits de lecture et exécution pour le groupe utilisateurs authentifiés et opérateurs de serveurs, aucun droits pour les créateur propriétaire.
+
+Un partage caché pour le dossier print qui contient les spools d'impression, createur propriétaire aucun droit, opérateur de serveur Modification, opérateur d'impression tout les droits, tout le monde droits de lecture et exécution et utilisateurs authentifiés également droit de lecture et exécution.
+
+Un partage caché profil, créateur propriétaire aucun droit, utilisateur du domaine droit de modification.
+
+Un partage Services, créateur propriétaire aucun droits.
+
+Un partage SYSVOL, créatuer propriétaire aucun droit, opérateur de serveur et utilisateurs authentifiés droits de lecture et exécution.
+
+Un partage caché utilisateur, créateur propriétaire aucun droits.
 
 ![alt text](images/FileServer/PartageLocal.png)
 
-Sessions local :
+Aucune Session locale :
 
 ![alt text](images/FileServer/SessionLocal.png)
 
-Fichiers ouverts :
+aucun fichiers d'ouverts :
 
 ![alt text](images/FileServer/FichierOuvertLocal.png)
 
@@ -223,19 +255,44 @@ Le raid 5 est partagée en plusieurs partitions nommée Data avec comme lettre d
 
 ![alt text](images/FileServer/GestionDisques.png)
 
-# Client
+Le disque D: possède 74.1 Go de disponible mais seulement 5.87 Go sont utilisés pour un total de 80 Go de base.
 
+![alt text](images/Autres/EspaceDisponible.png)
+
+Le dossier Download contient un dossier image qui contient l'image du client windows 7.
+
+Le dossier Echange contient un dossier Images et Vidéos qui sont vide les deux.
+
+Le dossier Profils contient uniquement le dossier de Tim Brown, qui contient lui même un dossier Administration vide et un dossier Perso également vide.
+
+![alt text](images/Autres/FichierTimBrown.png)
+
+Le dossier Services contient tout les services de l'entreprise, seul le dossier IT contient un dossier Administration vide.
+
+Le dossier Utilisateur contient tout les dossiers des utilisateurs de l'entreprise, seul le dossier de Tim Brown contient comme mentionné auparavant un dossier administration et Perso qui sont les deux vides.
+
+![alt text](images/Autres/fichiers.png)
+
+Le disque C: qui possède 35.8 Go de libre et 4.15 Go d'utilisés pour un total de 40Go de base.
+
+![alt text](images/Autres/EspaceDisponibleC.png)
+
+Il contient tout les fichiers systèmes destinés au focntionnement du serveur.
+
+Il y a également un lecteur disquette(A:) ainsi qu'un lecteur de disque DVD (E:).
+
+# Client
 ## Hardware :
 
-- 35 machines clientes de type [Dell Latitude E6510](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/latitude-e6410-e6510-specsheet.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6510 est incompatible avec Windows 10.
+- 35 machines clientes de type [Dell Latitude E6510](https://i.dell.com/sites/csdocuments/Shared-Content_data-Sheets_Documents/en/latitude-e6410-e6510-specsheet.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6510 est incompatible avec Windows 10.
 
-- 10 machines clientes de type [Dell Latitude E6530](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/dell-e6530.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6530 est compatible avec Windows 10.
+- 10 machines clientes de type [Dell Latitude E6530](https://www.notebooksforstudents.org/Descriptions/dell-e6530.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell latitude E6530 est compatible avec Windows 10.
 
-- 5 machines clientes de type [Dell Optiplex 990](https://github.com/Vinkhey/ICT-158/blob/main/Doc%20Machines/optiplex-990-tech-guide.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell Optiplex 990 n'est pas compatible avec Windows 10.
+- 5 machines clientes de type [Dell Optiplex 990](https://www.dell.com/downloads/global/products/optix/en/optiplex-990-tech-guide.pdf) cliquez sur le nom pour afficher la documentation Dell. Le Dell Optiplex 990 n'est pas compatible avec Windows 10. `Car Dell n'a pas mis à disposition des pilotes qui supportent Windows 10 sur ces PC.`
 
 ## OS de la machine client :
 
-Windows 7 Entreprise 64 bits
+Windows 7 Entreprise 64 bits `Service Pack 1`
 
 ## Réseau :
 
@@ -259,7 +316,11 @@ Serveur DNS : 10.1.1.20
 
 ### Office :
 
-![alt-text](images/MachineClient/Office.jpg)
+![](P:\4ème\ICT-158\Office.PNG)
+
+`Version Office : 11.5604.5606`
+
+`Office 2003 est compatible avec Windows 10.`
 
 ### Antivirus :
 
@@ -267,102 +328,51 @@ Nom : Avira Antivirus
 
 Version du produit : 15.0.20.59 -> Date : 25.08.2016
 
-License : Non-valable
+License : `Version gratuite`
 
 ### Bureau à distance :
 
-![alt-text](images/MachineClient/BureauDistance.jpg)
+ ![](P:\4ème\ICT-158\Bureau à distance.PNG)
 
 ### Adobe reader :
 
-![alt-text](images/MachineClient/Adobe.jpg)
+![](P:\4ème\ICT-158\Adobe.PNG)
 
-# Users
+`FireFox :`
 
-## Users Existants
+`Version : 49.0.1`
 
-La liste de tout les utilisateurs du domaine :
+`XMind :`
 
-![alt text](images/AD/UsersExistants.png)
+`Version : 7.5 Update 1 (R3.6.51.201607142338)`
 
-## Appartenances aux groupes
+`License : Pas de license`
 
-Certains utilisateurs ne font pas partis de leur groupe mais d'autre oui :
+`UltraVNC :`
 
-Mélanie Alonso dans Back-Office :
-
-![alt text](images/AD/DepartementAD/Back-Office.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Back-Office.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Melanie.png)
-
-Dana Shipper dans Comptabilite :
-
-![alt text](images/AD/DepartementAD/Comptabilite.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Comptabilite.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Dana.png)
-
-Marc Mueller dans Direction :
-
-![alt text](images/AD/DepartementAD/Direction.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Direction.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Marc.png)
-
-Tim Brown dans IT :
-
-![alt text](images/AD/DepartementAD/IT.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/IT.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Tim.png)
-
-Jean-Michel dans Logistique :
-
-![alt text](images/AD/DepartementAD/Logistique.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Logistique.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Jean-Michel.png)
-
-Andre Dupre dans Marketing :
-
-![alt text](images/AD/DepartementAD/Marketing.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Marketing.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Andre.png)
-
-Juerg Haefeli dans Production :
-
-![alt text](images/AD/DepartementAD/Production.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Production.png)
-
-![alt text](images/AD/DepartementAD/GroupeAD/Juerg.png)
+`Version : 1.2.1.1`
 
 ## Script Logon
 
-Il y a un script différent pour chaque utlisateur selon sont affiliation aux départements :
-
-![alt text](images/Autres/ScriptLogon.png)
+Il y a un script différent pour chaque utlisateur selon son affiliation aux départements, pour l'instant le seul profil de créer et celui de Tim Brown, aucun autre profil ne figure dans le dossier Profils.
 
 Le chemin où sont stocker tout les scripts :
 
 ![alt text](images/Autres/ScriptLogonChemin.png)
 
+Le contenu du script Back, servant à créer la session pour l'utilsatrice Melanie Alonso comme il s'agit de l'unique membre du Back Office. On peut voir que le script mappe un lecteur E: avec le contenu du dossier Back-Offfice et le script ajoute également l'imprimante HP_Back, chaque script fait les mêmes actions mais en changeant à chaque fois d'utilisateurs et d'imprimantes en fonction des affilations.
+
+![alt text](images/Autres/ScriptBack.png)
+
+
 ## Profils itinérants
 
-Dans cette capture ont peut voir le chemin du profil de l'utilisateur, ils ont tous le même chemin mais en changeant juste le selon leur prénom et nom
+Dans cette capture ont peut voir le chemin du profil de l'utilisateur, ils ont tous le même chemin mais en changeant juste le chemin selon leur prénom et nom, comme mentionné auparavant seul le profil de Tim Brown a été créé, il contient aucun octet de données.
 
 ![alt text](images/Autres/ScriptLogon.png)
 
 ## Dossier personnel
 
-Chaque dossier perso des utilisateurs est monté sur un lecteur U:, changeant également nom en fonction de leur prénom et nom
+Chaque dossier perso des utilisateurs est monté sur un lecteur U:, changeant également nom en fonction de leur prénom et nom, seul le dossier de Tim Brown contient des dossiers, les dossiers Administration et Perso qui sont les deux vides, tout les dossiers possèdent 0 octets de données.
 
 ![alt text](images/Autres/DossierBase.png)
