@@ -1,20 +1,38 @@
+<<<<<<< HEAD
 
 # Changement du hardware
 ## Choix du matériel
+=======
+# Pratique
+# Changement du Hardware
+
+Selon Microsoft le système minimale pour installer Windows server 2019 est :
+
+## Processeur
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 
 Selon microsoft le système minimale pour installer Windows server 2019 est :
 ## Processeur
 ### Minimum:
 
+<<<<<<< HEAD
 Processeur 1,4 GHz 64 bits
 Compatible avec le jeu d’instructions x64
 Prend en charge NX et DEP
 Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW
 Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)
+=======
+    Processeur 1,4 GHz 64 bits
+    Compatible avec le jeu d’instructions x64
+    Prend en charge NX et DEP
+    Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW
+    Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 
 ## RAM
 ### Minimum:
 
+<<<<<<< HEAD
 512 Mo (2 Go pour l’option d’installation Serveur avec Expérience utilisateur)
 Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements d’hôtes physiques
 
@@ -23,13 +41,32 @@ Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements
 Les ordinateurs qui exécutent Windows Server 2019 doivent inclure un adaptateur du stockage conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.
 
 ### L’espace disque requis minimal approximatif pour la partition système est le suivant :
+=======
+    512 Mo (2 Go pour l’option d’installation Serveur avec Expérience utilisateur)
+    Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements d’hôtes physiques
+
+## Contrôleur de stockage et espace disque requis
+
+Les ordinateurs qui exécutent Windows Server 2019 doivent inclure un adaptateur du stockage conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.
+
+L’espace disque requis **minimal** approximatif pour la partition système est le suivant.
+
+**Minimum** : 32 Go
+
+## Conditions requises pour les cartes réseau
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 
 Minimum : 32 Go
 Conditions requises pour les cartes réseau
 Minimum:
 
+<<<<<<< HEAD
 Carte réseau Ethernet capable d’au moins un débit en gigabits
 Conforme à la spécification de l’architecture PCI Express.
+=======
+    Carte réseau Ethernet capable d’au moins un débit en gigabits
+    Conforme à la spécification de l’architecture PCI Express.
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 
 Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.
 
@@ -39,11 +76,25 @@ Une carte réseau qui prend en charge l’environnement PXE (Pre-boot Execution 
 
 HPE ProLiant MicroServer Gen10 Plus
 
+<<<<<<< HEAD
 Processeur : Intel Xeon E-2224 Vitesse : 3.40GHz RAM : 16Go Type : DDR4 Vitesse de RAM : 2666 MHz Capacité de stokage : 4 x 1Tb
 
+=======
+[HPE ProLiant MicroServer Gen10 Plus](https://buy.hpe.com/ch/fr/servers/proliant-microserver/proliant-microserver/proliant-microserver/hpe-proliant-microserver-gen10-plus/p/1012241014)
+
+Processeur : Intel Xeon E-2224
+Vitesse : 3.40GHz
+RAM : 16Go
+Type : DDR4
+Vitesse de RAM : 2666 MHz
+Capacité de stokage : 4 x 1Tb 
+
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 Prix : 820.-
 
 Ce serveur est puissant, compact et a un faible coût. Il est parfait pour les petites entreprises. Nous avons choisi celui-ci, car il remplit les critères pour l'entreprise.
+
+Ce serveur est puissant, petit et a un faible coût. Il est parfait pour les petites entreprises. Nous avons choisi celui-ci, car il remplit les critères pour l'entreprise. Étant donné qu'il possède 4 disques dur, il n'y aura pas de soucis avec le RAID 5. 
 
 
 
@@ -74,6 +125,7 @@ La méthode 3 semble être non seulement la plus rapide mais également la plus 
 
 ## Méthode 1
 
+<<<<<<< HEAD
 La première méthode, permet de migrer le DHCP en faisant en premier temps un backup de la config DHCP du server 2003 et à le lancer sur le serveur 2019, cette métohde permet de récupérer toute les config du DHCP, il ne restera plus qu'à désactiver et désinstaller l'ancien pour éviter tout conflit.
 
 Pour le DNS et l'AD, cette méthode ne fonctionne pas, il faut d'abord installer l'AD sur un serveur 2016 puis 2019, en ajoutant à un domaine déjà existant et en activant la réplication.
@@ -82,6 +134,34 @@ Pour le DNS et l'AD, cette méthode ne fonctionne pas, il faut d'abord installer
 
 La deuxième méthode consiste à recréer le DHCP, DNS et AD manuellement, recopiant un à un les configuration du server 2003.
 
+=======
+La première méthode consisterai à migrer l'AD sur Windows Server 2008 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2008 à 2019.  Car sous Windows 2000 server et 2003, la réplication de SYSVOL ce faisait à l'aide FRS (NTFRS) alors que depuis Windows Server 2008 il se fait avec DFSR. D'où le besoin de faire une première migrations de 2003 à 2008 et ensuite de faire celle de 2008 à 2019. <br/>
+
+Tout d'abord, il faut voir l'état de son active directory à l'aide de la commande suivante: 
+
+```cmd
+dcdiag /e /test:sysvolcheck /test:advertising #permet faire un check de sysvol et du domaine controller
+```
+
+```cmd
+dfsrmig /setglobalstate 1  #La migration va passé en mode préparation et va faire une copie de SYSVOL avec le nom SYSVOL_DFSR
+```
+
+```cmd
+dfsrmig /getmigrationstate #Permet de voir l'avancement de la commande que l'on vient de faire. Jusqu'a ce que ça nous mette le fait qu'on a réussi.
+```
+
+```cmd
+dfsrmig /setglobalstate 2 #
+```
+
+
+
+
+
+## Méthode 2
+
+>>>>>>> 5430d8696efb7e84e1556eb833ebfb35ab35a827
 ## Justification de la méthode choisie
 
 Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréeant manuellement les services.
