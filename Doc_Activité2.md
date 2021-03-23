@@ -1,40 +1,43 @@
 # Pratique
 # Changement du Hardware
 
-Selon microsoft le système minimale pour installer windows server 2019 est :
+Selon Microsoft le système minimale pour installer Windows server 2019 est :
 
-## Processor
+## Processeur
 
 ### Minimum:
 
-    1.4 GHz 64-bit processor
-    Compatible with x64 instruction set
-    Supports NX and DEP
-    Supports CMPXCHG16b, LAHF/SAHF, and PrefetchW
-    Supports Second Level Address Translation (EPT or NPT)
+    Processeur 1,4 GHz 64 bits
+    Compatible avec le jeu d’instructions x64
+    Prend en charge NX et DEP
+    Prend en charge CMPXCHG16b, LAHF/SAHF et PrefetchW
+    Prend en charge la traduction d’adresse de second niveau (EPT ou NPT)
 
 ## RAM
 
 ### Minimum:
 
-    512 MB (2 GB for Server with Desktop Experience installation option)
-    ECC (Error Correcting Code) type or similar technology, for physical host deployments
+    512 Mo (2 Go pour l’option d’installation Serveur avec Expérience utilisateur)
+    Type ECC (Error Correcting Code) ou technologie similaire pour les déploiements d’hôtes physiques
 
-## Storage controller and disk space requirements
+## Contrôleur de stockage et espace disque requis
 
-Computers that run Windows Server 2019 must include a storage adapter that is compliant with the PCI Express architecture specification. Persistent storage devices on servers classified as hard disk drives must not be PATA. Windows Server 2019 does not allow ATA/PATA/IDE/EIDE for boot, page, or data drives.
-Minimum: 32 GB
+Les ordinateurs qui exécutent Windows Server 2019 doivent inclure un adaptateur du stockage conforme à la spécification de l’architecture PCI Express. Les dispositifs de stockage persistant sur les serveurs classés en tant que lecteurs de disque dur ne doivent pas être PATA. Windows Server 2019 n’autorise pas ATA/PATA/IDE/EIDE pour les lecteurs de données, de démarrage ou de page.
 
-## Network adapter requirements
+L’espace disque requis **minimal** approximatif pour la partition système est le suivant.
+
+**Minimum** : 32 Go
+
+## Conditions requises pour les cartes réseau
 
 ### Minimum:
 
-    An Ethernet adapter capable of at least gigabit throughput
-    Compliant with the PCI Express architecture specification.
+    Carte réseau Ethernet capable d’au moins un débit en gigabits
+    Conforme à la spécification de l’architecture PCI Express.
 
-A network adapter that supports network debugging (KDNet) is useful, but not a minimum requirement.
+Une carte réseau qui prend en charge le débogage réseau (KDNet) est utile, mais ne constitue pas une condition minimale requise.
 
-A network adapter that supports the Pre-boot Execution Environment (PXE) is useful, but not a minimum requirement.
+Une carte réseau qui prend en charge l’environnement PXE (Pre-boot Execution Environment) est utile, mais ne constitue pas une condition minimale requise.
 
 ## Choix du matériel
 
