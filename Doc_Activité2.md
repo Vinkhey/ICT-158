@@ -137,7 +137,7 @@ La méthode 2 consisterait à partir de zéro et recommencer tout le travail. C'
 
 ## Justification de la méthode choisie
 
-Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréant manuellement les services.
+Bien que la méthode 2 semble être plus rapide, nous prendrons la première méthode car elle permet d'enlever les erreurs humaines que nous pourrions faire en recréant manuellement les services. Et la première méthode semble être plus complète et pertinente que la deuxième.
 
 # Pratique
 
