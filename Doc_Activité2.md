@@ -84,8 +84,31 @@ La méthode 3 semble être non seulement la plus rapide mais également la plus 
 # Migration des Services
 ## Méthode 1
 
-La première méthode consisterai à migrer l'AD sur Windows Server 2008 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2008 à 2019.  
+La première méthode consisterai à migrer l'AD sur Windows Server 2008 en premier lieu. Car il est impossible de le faire directement de Windows Server 2003 à 2019.  Ensuite, il faudrait faire la migration de 2008 à 2019.  Car sous Windows 2000 server et 2003, la réplication de SYSVOL ce faisait à l'aide FRS (NTFRS) alors que depuis Windows Server 2008 il se fait avec DFSR. D'où le besoin de faire une première migrations de 2003 à 2008 et ensuite de faire celle de 2008 à 2019. <br/>
+
+Tout d'abord, il faut voir l'état de son active directory à l'aide de la commande suivante: 
+
+```cmd
+dcdiag /e /test:sysvolcheck /test:advertising #permet faire un check de sysvol et du domaine controller
+```
+
+```cmd
+dfsrmig /setglobalstate 1  #La migration va passé en mode préparation et va faire une copie de SYSVOL avec le nom SYSVOL_DFSR
+```
+
+```cmd
+dfsrmig /getmigrationstate #Permet de voir l'avancement de la commande que l'on vient de faire. Jusqu'a ce que ça nous mette le fait qu'on a réussi.
+```
+
+```cmd
+dfsrmig /setglobalstate 2 #
+```
+
+
+
+
 
 ## Méthode 2
+
 ## Justification de la méthode choisie
 ## description
