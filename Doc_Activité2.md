@@ -38,9 +38,20 @@ A network adapter that supports the Pre-boot Execution Environment (PXE) is usef
 
 ## Choix du matériel
 
+[HPE ProLiant MicroServer Gen10 Plus](https://buy.hpe.com/ch/fr/servers/proliant-microserver/proliant-microserver/proliant-microserver/hpe-proliant-microserver-gen10-plus/p/1012241014)
 
+Processeur : Intel Xeon E-2224
+Vitesse : 3.40GHz
+RAM : 16Go
+Type : DDR4
+Vitesse de RAM : 2666 MHz
+Capacité de stokage : 4 x 1Tb 
+
+Prix : 820.-
 
 ## Justification financière
+
+Ce serveur est puissant, petit et a un faible coût. Il est parfait pour les petites entreprises. Nous avons choisi celui-ci, car il remplit les critères pour l'entreprise. Étant donné qu'il possède 4 disques dur, il n'y aura pas de soucis avec le RAID 5. 
 
 
 
